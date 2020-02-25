@@ -79,6 +79,24 @@ Route::get('eloquent',function(){
 
 Route::get('lat-eloquent', function(){
 
-    $mahasiswa = Mahasiswa::where('nama','=','Mamat Kabrit')->get();
+    $mahasiswa = Mahasiswa::with('wali','dosen','hobi')->where('nama','=','Mamat Kabrit')->first();
     return view('lat-eloquent',compact('mahasiswa'));
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Blade template
+Route::get('beranda', function(){
+    return view('beranda');
+});
+Route::get('tentang', function(){
+    return view('tentang');
+});
+Route::get('kontak', function(){
+    return view('kontak');
+});
+
+// CRUD
+Route::resource('dosen','DosenController');

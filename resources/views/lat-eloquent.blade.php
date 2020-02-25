@@ -7,19 +7,21 @@
     <title>Latihan Eloquent</title>
 </head>
 <body>
-    @foreach ($mahasiswa as $lat)
-        <h3>{{ $lat->nama }}</h3>
+        @extends('layouts.template')
+        @section('konten')
+            <h3>{{ $mahasiswa->nama }}</h3>
         <h4>Hobi :
-            @foreach ($lat->hobi as $hi)
+            @foreach ($mahasiswa->hobi as $hi)
                 {{ $hi->hobi }},
             @endforeach
         </h4>
         <strong>
-            <li>Nama Wali : {{ $lat->wali->nama }}</li>
-            <li>Nama Dosen : {{ $lat->dosen->nama }} </li>
+            <li>Nama Wali : {{ $mahasiswa->wali->nama }}</li>
+            <li>Nama Dosen : {{ $mahasiswa->dosen->nama }} </li>
         </strong>
         <hr>
-    @endforeach
+
+        @endsection
 
 </body>
 </html>
