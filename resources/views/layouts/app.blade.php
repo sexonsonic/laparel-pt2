@@ -38,6 +38,9 @@
                             <li class="nav-link">
                                 <a href="{{route('dosen.index')}}" class="nav-link">Dosen</a>
                             </li>
+                            <li class="nav-link">
+                                <a href="{{route('hobi.index')}}" class="nav-link">Hobi</a>
+                            </li>
                         @endguest
                     </ul>
 
