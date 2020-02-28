@@ -40,8 +40,9 @@ class MahasiswaController extends Controller
 
     public function edit($id)
     {
+        $dosen = Dosen::all();
         $mhs = Mahasiswa::findOrFail($id);
-        return view('mahasiswa.edit', compact('mhs'));
+        return view('mahasiswa.edit', compact('mhs','dosen'));
     }
 
     public function update(Request $request, $id)
@@ -52,7 +53,7 @@ class MahasiswaController extends Controller
         $mhs->id_dosen = $request->id_dosen;
         $mhs->save();
         return redirect()->route('mahasiswa.index')
-                ->with(['message'=>'Data Berhasil di buat']);
+                ->with(['message'=>'Data Berhasil diubah']);
     }
 
     public function destroy($id)
